@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 //icons
-import { LuTimer } from "react-icons/lu";
+import { LuBlocks, LuFileX, LuTimer } from "react-icons/lu";
 //images
 import pan_corner from "../../assets/pan_corner.png";
 import fruits2 from "../../assets/fruits2.webp";
@@ -67,92 +67,236 @@ const Hero = () => {
           <p className="font-bold text-[1rem] pt-[2.7rem] pb-[1rem]">
             Shop by category
           </p>
-          <div className="grid grid-cols-4 gap-2 auto-rows-[8rem] items-center gap-y-5">
-            <div className="col-start-1 col-end-3 flex flex-col justify-center items-center bg-[#EDF4FE] ">
-              <img
-                src={breakfast}
-                alt="fruits"
-                className="h-[6rem] bg-[#EDF4FE] rounded-sm "
-              />
-              <p className="text-center font-medium text-[14px]">
+          <div className=" md:w-fit grid grid-cols-4 gap-2 md:grid-cols-10 md:gap-1.5 auto-rows-[8rem] items-center gap-y-5">
+            <div className="md:w-fit col-start-1 col-end-3 md:col-span-1 flex flex-col  items-center  justify-center">
+              <div className="   bg-[#EDF4FE] w-full flex justify-center rounded-md">
+                <img
+                  src={breakfast}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm "
+                />
+              </div>
+              <p className="text-center font-medium text-[14px] ">
                 Fruits & Vegetables
               </p>
             </div>
-            <div className="col-start-3 col-end-5  flex flex-col   justify-center items-center max-w-full  bg-[#EDF4FE]">
-              <img
-                src={breakfast}
-                alt="fruits"
-                className="h-[6rem]  rounded-sm "
-              />
+            {/* ----------dairy & breakfast--------- */}
+            <div className="md:w-fit col-start-3 col-end-5 md:col-span-1  flex flex-col   justify-center items-center">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE] rounded-md">
+                <img
+                  src={breakfast}
+                  alt="fruits"
+                  className="h-[6rem]  rounded-sm "
+                />
+              </div>
+
               <p className="text-center font-medium text-[14px]">
                 Dairy & breakfast
               </p>
-            </div>{" "}
-            <div className=" flex flex-col  justify-center items-center bg-[#EDF4FE]">
-              <img
-                src={munchies}
-                alt="fruits"
-                className="h-[6rem] bg-[#EDF4FE] rounded-sm"
-              />
+            </div>
+            {/* ------munchies---------------- */}
+            <div className="md:w-fit flex flex-col  justify-center items-center grid-flow-row-dense">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE] rounded-sm">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
               <p className="text-center font-medium text-[14px]">Munchies</p>
-            </div>{" "}
-            <div className="col-start-2 col-end-4  flex flex-col  justify-center items-center bg-[#EDF4FE]">
-              <img
-                src={colddrink}
-                alt="fruits"
-                className="h-[6rem] bg-[#EDF4FE] rounded-sm"
-              />
+            </div>
+            {/* ------------cold drink----------------- */}
+            <div className=" md:w-fit col-start-2 border col-end-4 md:col-span-1  flex flex-col  justify-center items-center grid-flow-row-dense">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={colddrink}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+
               <p className="text-center font-medium text-[14px]">
                 Cold Drinks & Juices
               </p>
-            </div>{" "}
-            <div className=" flex flex-col  justify-center items-center bg-[#EDF4FE]">
-              <img
-                src={instant_food}
-                alt="fruits"
-                className="h-[6rem] bg-[#EDF4FE] rounded-sm"
-              />
-              <p className="text-center font-medium text-[14px]">
-                Instant & Frozen Food
+            </div>
+            {/* ----------instant frozen-------------- */}
+            <div className=" md:w-fit flex flex-col  justify-center items-center">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={instant_food}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+
+              <p className="text-center font-medium text-[12px] text-wrap">
+                Instant & Frozen
               </p>
-            </div>{" "}
-            <div className=" flex flex-col  justify-center items-center bg-[#EDF4FE]">
-              <img
-                src={tea}
-                alt="fruits"
-                className="h-[6rem] bg-[#EDF4FE] rounded-sm"
-              />
+            </div>
+            {/* --------tea coffee------------------- */}
+            <div className=" md:w-fit flex flex-col  justify-center items-center ">
+              <div className="w-full  flex justify-center bg-[#EDF4FE] rounded-md">
+                <img
+                  src={tea}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
               <p className="text-center font-medium text-[14px]">
                 Tea & Coffee
               </p>
-            </div>{" "}
-            <div className="flex flex-col justify-center items-center max-h-full bg-[#EDF4FE]">
-              <img
-                src={bakery}
-                alt="fruits"
-                className="h-[6rem] rounded-sm  "
-              />
+            </div>
+            {/* ------bakey biscuits----------------- */}
+            <div className=" md:w-fit flex flex-col justify-center items-center max-h-full">
+              <div className="w-full  flex justify-center bg-[#EDF4FE] rounded-md">
+                <img
+                  src={bakery}
+                  alt="fruits"
+                  className="h-[6rem] rounded-sm  "
+                />
+              </div>
               <p className="text-center font-medium text-[14px]">
                 Bakery & Biscuits
               </p>
-            </div>{" "}
-            <div className="  flex flex-col justify-center items-center bg-[#EDF4FE]">
-              <img
-                src={sweetTooth}
-                alt="fruits"
-                className="h-[6rem] bg-[#EDF4FE] rounded-sm"
-              />
+            </div>
+            {/* ---------sweet tooth----------------- */}
+            <div className="md:w-fit flex flex-col justify-center items-center">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE] rounded-md">
+                <img
+                  src={sweetTooth}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+
               <p className="text-center font-medium text-[14px]">Sweet Tooth</p>
-            </div>{" "}
-            <div className="  flex flex-col justify-center items-center bg-[#EDF4FE]">
-              <img
-                src={atta}
-                alt="fruits"
-                className="h-[6rem] bg-[#EDF4FE] rounded-sm"
-              />
+            </div>
+            {/* --------------attta rice ---------------------------- */}
+            <div className=" md:w-fit flex flex-col justify-center items-center">
+              <div className=" w-full flex justify-center bg-[#EDF4FE] rounded-md ">
+                <img
+                  src={atta}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+
               <p className="text-center font-medium text-[14px]">
                 Atta, Rice & Dal
               </p>
+            </div>
+
+            {/* -----------extra items shown when on lg----------- */}
+
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
             </div>
           </div>
         </div>
@@ -644,11 +788,13 @@ const Hero = () => {
             </div>
           </Slider>
         </div>
+        {/* ----------cold drink & juices --------------- */}
+        
         {/* -----adding footer component--------- */}
         <div className="md:hidden">
           <Footer />
         </div>
-        <div>
+        <div className=" hidden md:block  ">
           <FooterLaptop />
         </div>
       </div>
