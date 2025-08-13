@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import FrontPage from "./components/Home/FrontPage";
+import FrontPage from "./components/Home/FrontPage.jsx";
 
 function App() {
   return (

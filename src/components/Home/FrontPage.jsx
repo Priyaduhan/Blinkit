@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "./Navbar";
-import Hero from "./Hero";
-import Login from "../Login/Login";
-import LoginMobile from "../Login/LoginMobile";
+import Navbar from "./Navbar.jsx";
+import Hero from "./Hero.jsx";
+import Login from "../Login/Login.jsx";
+import LoginMobile from "../Login/LoginMobile.jsx";
 const FrontPage = () => {
   return (
     <div>
