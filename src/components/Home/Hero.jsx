@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "./Footer";
-import FooterLaptop from "./FooterLaptop";
+import Footer from "./Footer.jsx";
+import FooterLaptop from "./FooterLaptop.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -798,7 +798,6 @@ const Hero = () => {
           <FooterLaptop />
         </div>
       </div>
-    
     </>
   );
 };

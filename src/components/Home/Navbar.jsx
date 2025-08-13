@@ -8,7 +8,7 @@ import { IoCartOutline } from "react-icons/io5";
 const Navbar = () => {
   return (
     <>
-      <div className="">
+      <div >
         <div className="lg:flex justify-around mb-2 px-4  gap-4 bg-[#FFFFFF] border-gray-200 border-b-1 z-50 fixed mt-0 pt-0 w-full   ">
           {/* -------------blinkit logo------------ */}
           <div className="hidden lg:flex items-center">
