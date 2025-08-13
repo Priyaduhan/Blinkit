@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from "./Footer.jsx";
-import FooterLaptop from "./FooterLaptop.jsx";
+import Footer from "../Home/Footer.jsx";
+import FooterLaptop from "../Home/FooterLaptop.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -795,7 +795,7 @@ const Hero = () => {
           <Footer />
         </div>
         <div className=" hidden md:block  ">
-          <FooterLaptop />
+          <FooterLaptop></FooterLaptop>
         </div>
       </div>
     </>
