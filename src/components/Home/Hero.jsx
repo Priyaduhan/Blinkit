@@ -789,7 +789,7 @@ const Hero = () => {
           </Slider>
         </div>
         {/* ----------cold drink & juices --------------- */}
-        
+
         {/* -----adding footer component--------- */}
         <div className="md:hidden">
           <Footer />
@@ -798,6 +798,7 @@ const Hero = () => {
           <FooterLaptop />
         </div>
       </div>
+    
     </>
   );
 };
