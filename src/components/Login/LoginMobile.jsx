@@ -1,6 +1,6 @@
 import React from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import blinkitLogo from "../../assets/blinkit_Logo2.png";
+import blinkitLogo from "../../assets/blinkit_logo2.png";
 
 const LoginMobile = () => {
   return (

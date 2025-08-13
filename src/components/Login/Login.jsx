@@ -1,5 +1,5 @@
 import React from "react";
-import blinkitLogo from "../../assets/blinkit_Logo2.png";
+import blinkitLogo from "../../assets/blinkit_logo2.png";
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 const Login = () => {
