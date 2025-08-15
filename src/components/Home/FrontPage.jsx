@@ -1,19 +1,27 @@
 import React from "react";
 import Navbar from "./Navbar.jsx";
 import Hero from "./Hero.jsx";
-import Login from "../Login/Login.jsx";
 import LoginMobile from "../Login/LoginMobile.jsx";
+
+import { useState } from "react";
+import SignupMobile from "../Login/SignupMobile.jsx";
+
 const FrontPage = () => {
+  const [isSignup, setIsSignup] = useState(false);
+
   return (
     <div>
       <Navbar></Navbar>
       <Hero></Hero>
-      <div className="hidden lg:flex">
-        <Login></Login>
-      </div>
-      <div className="lg:hidden">
-        <LoginMobile></LoginMobile>
-      </div>
+
+      {isSignup == false && (
+        <LoginMobile
+          isSignup={isSignup}
+          setIsSignup={setIsSignup}
+        ></LoginMobile>
+      )}
+
+      {isSignup && <SignupMobile />}
     </div>
   );
 };
