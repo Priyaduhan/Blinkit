@@ -1,0 +1,657 @@
+import React, { useState, useEffect } from "react";
+import Footer from "./Footer.jsx";
+import FooterLaptop from "./FooterLaptop.jsx";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import hotDeals from "../../Hotdeals.json";
+//icons
+import { LuBlocks, LuFileX, LuTimer } from "react-icons/lu";
+import { LuMinus } from "react-icons/lu";
+import { FiPlus } from "react-icons/fi";
+//images
+import pan_corner from "../../assets/pan_corner.png";
+import fruits2 from "../../assets/fruits2.webp";
+import breakfast from "../../assets/breakfast.avif";
+import munchies from "../../assets/munchies.avif";
+import colddrink from "../../assets/colddrink.avif";
+import instant_food from "../../assets/instant.avif";
+import tea from "../../assets/tea.avif";
+import bakery from "../../assets/bakery.avif";
+import sweetTooth from "../../assets/chocolates.avif";
+import atta from "../../assets/atta.jpeg";
+import lays from "../../assets/chips.avif";
+
+const Hero = ({
+  addToCart,
+  cartItems,
+  IncreaseProductQuantity,
+  decreaseProductQuantity,
+}) => {
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    autoplay: false,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 4, slidesToScroll: 4 },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: { slidesToShow: 2, slidesToScroll: 2, initialSlide: 0 },
+      },
+      //   {
+      //     breakpoint:
+
+      //   }
+    ],
+  };
+  // console.log("cartItem", cartItems);
+  const [product1, setProduct1] = useState([]);
+  console.log(product1.image);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:8000/adminHandle/api/product1",
+          {
+            method: "GET",
+          }
+        );
+        const result = await response.json();
+        console.log("product1 is", result.data);
+
+        setProduct1(result.data);
+      } catch (error) {
+        console.log("some error occur in hero component", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <div className="mx-2 lg:mx-[5rem] md:mx-[3rem]  lg:pt-[5rem] md:pt-[8rem] ">
+        {/* -----------pan banner---------------------- */}
+        <div className="w-[80%] mx-auto">
+          <img
+            src={pan_corner}
+            alt="pan-corner"
+            className=" h-[4rem] sm:h-[8rem] md:h-[10rem] lg:h-[14rem]"
+          />
+        </div>
+        {/* -----------shop by category div start here-------------------- */}
+
+        <div>
+          <p className="font-bold text-[1rem] pt-[2.7rem] pb-[1rem]">
+            Shop by category
+          </p>
+          <div className=" md:w-fit grid grid-cols-4 gap-2 md:grid-cols-6  lg:grid-cols-10 md:gap-2 auto-rows-[8rem] items-center gap-y-5">
+            <div className="md:w-fit col-start-1 col-end-3 md:col-span-1 flex flex-col  items-center  justify-center">
+              <div className="   bg-[#EDF4FE] w-full flex justify-center rounded-md">
+                <img
+                  src={breakfast}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm "
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]  leading-[1] ">
+                Fruits & Vegetables
+              </p>
+            </div>
+            {/* ----------dairy & breakfast--------- */}
+            <div className="md:w-fit col-start-3 col-end-5 md:col-span-1  flex flex-col   justify-center items-center">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE] rounded-md">
+                <img
+                  src={breakfast}
+                  alt="fruits"
+                  className="h-[6rem]  rounded-sm "
+                />
+              </div>
+
+              <p className="text-center font-medium text-[14px]">
+                Dairy & breakfast
+              </p>
+            </div>
+            {/* ------munchies---------------- */}
+            <div className="md:w-fit flex flex-col  justify-center items-center grid-flow-row-dense">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE] rounded-sm">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            {/* ------------cold drink----------------- */}
+            <div className=" md:w-fit col-start-2 mt-1.5 col-end-4 md:col-span-1  flex flex-col  justify-center items-center grid-flow-row-dense">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE] rounded-md">
+                <img
+                  src={colddrink}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+
+              <p className="text-center font-medium text-[14px] leading-[1] ">
+                Cold Drinks & Juices
+              </p>
+            </div>
+            {/* ----------instant frozen-------------- */}
+            <div className=" md:w-fit flex flex-col  justify-center items-center">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={instant_food}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+
+              <p className="text-center font-medium text-[14px] text-wrap leading-[1.5]">
+                Instant & Frozen
+              </p>
+            </div>
+            {/* --------tea coffee------------------- */}
+            <div className=" md:w-fit flex flex-col  justify-center items-center ">
+              <div className="w-full  flex justify-center bg-[#EDF4FE] rounded-md">
+                <img
+                  src={tea}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">
+                Tea & Coffee
+              </p>
+            </div>
+            {/* ------bakey biscuits----------------- */}
+            <div className=" md:w-fit flex flex-col justify-center items-center max-h-full">
+              <div className="w-full  flex justify-center bg-[#EDF4FE] rounded-md">
+                <img
+                  src={bakery}
+                  alt="fruits"
+                  className="h-[6rem] rounded-sm  "
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">
+                Bakery & Biscuits
+              </p>
+            </div>
+            {/* ---------sweet tooth----------------- */}
+            <div className="md:w-fit flex flex-col justify-center items-center">
+              <div className=" w-full  flex justify-center bg-[#EDF4FE] rounded-md">
+                <img
+                  src={sweetTooth}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+
+              <p className="text-center font-medium text-[14px]">Sweet Tooth</p>
+            </div>
+            {/* --------------attta rice ---------------------------- */}
+            <div className=" md:w-fit flex flex-col justify-center items-center">
+              <div className=" w-full flex justify-center bg-[#EDF4FE] rounded-md ">
+                <img
+                  src={atta}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-sm"
+                />
+              </div>
+
+              <p className="text-center font-medium text-[14px]">
+                Atta, Rice & Dal
+              </p>
+            </div>
+
+            {/* -----------extra items shown when on lg----------- */}
+
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+            <div className="md:flex flex-col md:w-fit justify-center items-center hidden">
+              <div className=" w-full md:w-fit  flex justify-center bg-[#EDF4FE]">
+                <img
+                  src={munchies}
+                  alt="fruits"
+                  className="h-[6rem] bg-[#EDF4FE] rounded-md"
+                />
+              </div>
+              <p className="text-center font-medium text-[14px]">Munchies</p>
+            </div>
+          </div>
+        </div>
+        {/* ---------------Hot deals carousel starts here ------------- */}
+        <div className="w-full overflow-hidden my-2 md:px-3">
+          <div className="flex justify-between my-4">
+            <p className="text-[1rem] font-bold ">Hot Deals</p>
+            <p className="text-green-700 font-medium cursor-pointer">see all</p>
+          </div>
+          {/* -------first card starts here-------------- */}
+          <Slider {...settings} className="">
+            {hotDeals.map((item) => (
+              <div
+                className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-7  "
+                key={item.id}
+              >
+                <div className="">
+                  <img
+                    src={lays}
+                    alt="lays"
+                    className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                  />
+                </div>
+                <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                  <LuTimer className="mt-0.5" />
+                  <p>9 mins</p>
+                </div>
+                <p className="text-[13px] font-medium">{item.name} </p>
+                <p className="text-[12px] text-gray-600">{item.weigh}gm</p>
+                <div className="flex justify-between">
+                  <div className="flex flex-col gap-0">
+                    <p className="text-[13px] font-medium">Rs {item.price}</p>
+                    <p className="text-[12px] line-through text-gray-700">
+                      Rs {item.originalPrice}
+                    </p>
+                  </div>
+
+                  {(() => {
+                    const inCart = cartItems.find(
+                      (cartItem) => cartItem.id === item.id
+                    );
+                    return inCart ? (
+                      <div className="flex items-center border h-[1.8rem] rounded-lg font-medium text-white bg-green-700 p-1 w-fit gap-2">
+                        <LuMinus
+                          className="cursor-pointer"
+                          onClick={() => decreaseProductQuantity(item)}
+                        />
+                        <p>{inCart.addedQuantity}</p>
+                        <FiPlus
+                          className="cursor-pointer"
+                          onClick={() => IncreaseProductQuantity(item)}
+                        />
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => addToCart(item)}
+                        className="border w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer"
+                      >
+                        ADD
+                      </button>
+                    );
+                  })()}
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+        {/* -----------making another div here------------- */}
+        <div className="w-full overflow-hidden my-2 md:px-3">
+          <div className="flex justify-between my-4">
+            <p className="text-[1rem] font-bold ">Snack it away</p>
+            <p className="text-green-700 font-medium cursor-pointer">see all</p>
+          </div>
+          {/* -------first card starts here-------------- */}
+          <Slider {...settings} className="">
+            <div className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-7  ">
+              <div className="">
+                <img
+                  src={`http://localhost:8000/${product1.image}`}
+                  alt="lays chps"
+                  className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                />
+              </div>
+              <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                <LuTimer className="mt-0.5" />
+                <p>9 mins</p>
+              </div>
+              <p className="text-[13px] font-medium">{product1.title} </p>
+              <p className="text-[12px] text-gray-600">{product1.weigh}g</p>
+              <div className="flex justify-between">
+                <div className="flex flex-col gap-0">
+                  <p className="text-[13px] font-medium">Rs 122</p>
+                  <p className="text-[12px] line-through text-gray-700">
+                    Rs 200
+                  </p>
+                </div>
+                <button className="border  w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer">
+                  ADD
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-7  ">
+              <div className="">
+                <img
+                  src={lays}
+                  alt="lays"
+                  className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                />
+              </div>
+              <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                <LuTimer className="mt-0.5" />
+                <p>9 mins</p>
+              </div>
+              <p className="text-[13px] font-medium">Healthy Banana Chips </p>
+              <p className="text-[12px] text-gray-600">100g</p>
+              <div className="flex justify-between">
+                <div className="flex flex-col gap-0">
+                  <p className="text-[13px] font-medium">Rs 122</p>
+                  <p className="text-[12px] line-through text-gray-700">
+                    Rs 200
+                  </p>
+                </div>
+                <button className="border  w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer">
+                  ADD
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-7  ">
+              <div className="">
+                <img
+                  src={lays}
+                  alt="lays"
+                  className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                />
+              </div>
+              <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                <LuTimer className="mt-0.5" />
+                <p>9 mins</p>
+              </div>
+              <p className="text-[13px] font-medium">Healthy Banana Chips </p>
+              <p className="text-[12px] text-gray-600">100g</p>
+              <div className="flex justify-between">
+                <div className="flex flex-col gap-0">
+                  <p className="text-[13px] font-medium">Rs 122</p>
+                  <p className="text-[12px] line-through text-gray-700">
+                    Rs 200
+                  </p>
+                </div>
+                <button className="border  w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer">
+                  ADD
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-7  ">
+              <div className="">
+                <img
+                  src={lays}
+                  alt="lays"
+                  className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                />
+              </div>
+              <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                <LuTimer className="mt-0.5" />
+                <p>9 mins</p>
+              </div>
+              <p className="text-[13px] font-medium">Healthy Banana Chips </p>
+              <p className="text-[12px] text-gray-600">100g</p>
+              <div className="flex justify-between">
+                <div className="flex flex-col gap-0">
+                  <p className="text-[13px] font-medium">Rs 122</p>
+                  <p className="text-[12px] line-through text-gray-700">
+                    Rs 200
+                  </p>
+                </div>
+                <button className="border  w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer">
+                  ADD
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-7  ">
+              <div className="">
+                <img
+                  src={lays}
+                  alt="lays"
+                  className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                />
+              </div>
+              <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                <LuTimer className="mt-0.5" />
+                <p>9 mins</p>
+              </div>
+              <p className="text-[13px] font-medium">Healthy Banana Chips </p>
+              <p className="text-[12px] text-gray-600">100g</p>
+              <div className="flex justify-between">
+                <div className="flex flex-col gap-0">
+                  <p className="text-[13px] font-medium">Rs 122</p>
+                  <p className="text-[12px] line-through text-gray-700">
+                    Rs 200
+                  </p>
+                </div>
+                <button className="border  w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer">
+                  ADD
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-7  ">
+              <div className="">
+                <img
+                  src={lays}
+                  alt="lays"
+                  className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                />
+              </div>
+              <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                <LuTimer className="mt-0.5" />
+                <p>9 mins</p>
+              </div>
+              <p className="text-[13px] font-medium">Healthy Banana Chips </p>
+              <p className="text-[12px] text-gray-600">100g</p>
+              <div className="flex justify-between">
+                <div className="flex flex-col gap-0">
+                  <p className="text-[13px] font-medium">Rs 122</p>
+                  <p className="text-[12px] line-through text-gray-700">
+                    Rs 200
+                  </p>
+                </div>
+                <button className="border  w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer">
+                  ADD
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-7  ">
+              <div className="">
+                <img
+                  src={lays}
+                  alt="lays"
+                  className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                />
+              </div>
+              <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                <LuTimer className="mt-0.5" />
+                <p>9 mins</p>
+              </div>
+              <p className="text-[13px] font-medium">Healthy Banana Chips </p>
+              <p className="text-[12px] text-gray-600">100g</p>
+              <div className="flex justify-between">
+                <div className="flex flex-col gap-0">
+                  <p className="text-[13px] font-medium">Rs 122</p>
+                  <p className="text-[12px] line-through text-gray-700">
+                    Rs 200
+                  </p>
+                </div>
+                <button className="border  w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer">
+                  ADD
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-7  ">
+              <div className="">
+                <img
+                  src={lays}
+                  alt="lays"
+                  className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                />
+              </div>
+              <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                <LuTimer className="mt-0.5" />
+                <p>9 mins</p>
+              </div>
+              <p className="text-[13px] font-medium">Healthy Banana Chips </p>
+              <p className="text-[12px] text-gray-600">100g</p>
+              <div className="flex justify-between">
+                <div className="flex flex-col gap-0">
+                  <p className="text-[13px] font-medium">Rs 122</p>
+                  <p className="text-[12px] line-through text-gray-700">
+                    Rs 200
+                  </p>
+                </div>
+                <button className="border  w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer">
+                  ADD
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col  pr-1 md:pr-2 lg:h-[14rem]  mr-2 md:mr-3 lg:pr-1 ">
+              <div className="">
+                <img
+                  src={lays}
+                  alt="lays"
+                  className="w-full  h-auto max-h-[8rem] lg:max-h-[7rem] object-contain bg-gray-100 border border-gray-500 rounded-md"
+                />
+              </div>
+              <div className="flex text-[12px] mt-0.5 w-fit bg-gray-100">
+                <LuTimer className="mt-0.5" />
+                <p>9 mins</p>
+              </div>
+              <p className="text-[13px] font-medium">Healthy Banana Chips </p>
+              <p className="text-[12px] text-gray-600">100g</p>
+              <div className="flex justify-between">
+                <div className="flex flex-col gap-0">
+                  <p className="text-[13px] font-medium">Rs 122</p>
+                  <p className="text-[12px] line-through text-gray-700">
+                    Rs 200
+                  </p>
+                </div>
+                <button className="border  w-[4rem] rounded-md border-green-700 bg-green-100 text-green-700 font-medium text-[13px] cursor-pointer">
+                  ADD
+                </button>
+              </div>
+            </div>
+          </Slider>
+        </div>
+        {/* ----------cold drink & juices --------------- */}
+
+        {/* -----adding footer component--------- */}
+        <div className="md:hidden">
+          <Footer />
+        </div>
+        <div className=" hidden md:block  ">
+          <FooterLaptop></FooterLaptop>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Hero;

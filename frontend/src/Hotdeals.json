@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 200,
+    "quantity": 100,
+    "originalPrice": 150,
+    "category": "Hot Deals"
+  },
+  {
+    "id": 2,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 100,
+    "quantity": 100,
+    "originalPrice": 200,
+    "category": "Hot Deals"
+  },
+  {
+    "id": 3,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 100,
+    "quantity": 100,
+    "originalPrice": 300,
+    "category": "Hot Deals"
+  },
+  {
+    "id": 4,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 100,
+    "quantity": 100,
+    "originalPrice": 150,
+    "category": "Hot Deals"
+  },
+  {
+    "id": 5,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 100,
+    "quantity": 100,
+    "originalPrice": 150,
+    "category": "Hot Deals"
+  },
+  {
+    "id": 6,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 100,
+    "quantity": 100,
+    "originalPrice": 150,
+    "category": "Hot Deals"
+  },
+  {
+    "id": 7,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 100,
+    "quantity": 100,
+    "originalPrice": 150,
+    "category": "Hot Deals"
+  },
+  {
+    "id": 8,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 100,
+    "quantity": 100,
+    "originalPrice": 150,
+    "category": "Hot Deals"
+  },
+  {
+    "id": 9,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 100,
+    "quantity": 100,
+    "originalPrice": 150,
+    "category": "Hot Deals"
+  },
+  {
+    "id": 10,
+    "name": "Healthy Banana Chips",
+    "price": 122,
+    "weigh": 300,
+    "quantity": 100,
+    "originalPrice": 150,
+    "category": "Hot Deals"
+  }
+]
